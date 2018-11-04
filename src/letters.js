@@ -13,5 +13,4 @@ letters.findMissingLetters = (text) => {
     return missingLetters.join('');
 };
 
-};
 module.exports = letters;

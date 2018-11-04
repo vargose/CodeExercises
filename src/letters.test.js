@@ -48,9 +48,9 @@ describe('letters', () => {
                 letters.findMissingLetters(randomStrings[i]);
             }
             const end = process.hrtime();
-            const nanseconds = (end[0] * oneSecond + end[1]) - (begin[0] * oneSecond + begin[1]);
+            const nanoseconds = (end[0] * oneSecond + end[1]) - (begin[0] * oneSecond + begin[1]);
 
-            expect(nanseconds).toBeLessThan(oneSecond);
+            expect(nanoseconds).toBeLessThan(oneSecond);
         });
 
         it('Can Process Big Strings in under a second', () => {
@@ -63,9 +63,9 @@ describe('letters', () => {
             const begin = process.hrtime();
             letters.findMissingLetters(randomString);
             const end = process.hrtime();
-            const slowerProcess = (end[0] * oneSecond + end[1]) - (begin[0] * oneSecond + begin[1]);
+            const nanoseconds = (end[0] * oneSecond + end[1]) - (begin[0] * oneSecond + begin[1]);
 
-            expect(slowerProcess).toBeLessThan(oneSecond);
+            expect(nanoseconds).toBeLessThan(oneSecond);
         });
     });
 });
