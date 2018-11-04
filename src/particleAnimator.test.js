@@ -17,6 +17,21 @@ describe('particleAnimator', () => {
         expect(particleAnimator.animate(1, '.L')).toEqual(['.X', 'X.', '..']);
     });
 
+    it('moves at higher speed', () => {
+        expect(particleAnimator.animate(3, 'RR..LRL'))
+            .toEqual([
+                'XX..XXX',
+                '.X.XX..',
+                'X.....X',
+                '.......']);
+    });
+
+    it('can move particles very fast', () => {
+        expect(particleAnimator.animate(10, 'RLRLRLRLRL')).toEqual([
+            'XXXXXXXXXX',
+            '..........']);
+    });
+
     it('moves lots of particles', () => {
         expect(particleAnimator.animate(1, 'LRRL.LR.LRR.R.LRRL.'))
             .toEqual([
