@@ -20,12 +20,17 @@ function readInitialState(init) {
     return particles;
 }
 
+function isParticleMovingLeft(particle) {
+    return particle < 0;
+}
+
 function move(particles, speed, length) {
     const newPositions = [];
     for (let i = 0; i < particles.length; i += 1) {
-        const newPosition = (particles[i] < 0)
-            ? Math.min(particles[i] + speed, 0)
-            : particles[i] + speed;
+        const currentPosition = particles[i];
+        const newPosition = (isParticleMovingLeft(currentPosition))
+            ? Math.min(currentPosition + speed, 0)
+            : currentPosition + speed;
         if (Math.abs(newPosition) > 0 && newPosition <= length) {
             newPositions.push(newPosition);
         }
